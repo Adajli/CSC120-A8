@@ -5,8 +5,8 @@ public class Superhero implements Contract {
 
     /**
      * Superhero constructor
-     * 
      * @param name
+     * @param height
      */
     public Superhero(String name, double height) {
         this.name = name;
