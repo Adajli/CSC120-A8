@@ -29,7 +29,6 @@ public class Superhero implements Contract {
      * @return item dropped
      */
     public String drop(String item) {
-        undo();
         return item;
     }
 
@@ -39,7 +38,11 @@ public class Superhero implements Contract {
      * @param item
      */
     public void examine(String item) {
-
+        if(item == null){
+            throw new RuntimeException("Can't examine that item.");
+        }
+        System.out.println("Examining the item.");
+        System.out.println(item + " is examined.");
     }
 
     /**
@@ -48,7 +51,11 @@ public class Superhero implements Contract {
      * @param item
      */
     public void use(String item) {
-
+        if(item == null){
+            throw new RuntimeException("Can't use that item.");
+        }
+        System.out.println("Using the item.");
+        System.out.println(item +" is used.");
     }
 
     /**
@@ -71,8 +78,9 @@ public class Superhero implements Contract {
      */
     public boolean fly(int x, int y) {
         boolean fly = false;
-        if (x > 0 && y > 0) {
+        if (x >= 0 && y > 0) {
             fly = true;
+            System.out.println(name + "is flying for "+ x +" units long and " + y + "units high.");
         } else {
             throw new RuntimeException(name + "can't fly at the distance.");
         }
