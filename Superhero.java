@@ -101,7 +101,7 @@ public class Superhero implements Contract {
         boolean fly = false;
         if (x >= 0 && y > 0) {
             fly = true;
-            System.out.println(name + "is flying for " + x + " units long and " + y + "units high.");
+            System.out.println(name + "is flying for " + x + " units long and " + y + " units high.");
         } else {
             throw new RuntimeException(name + "can't fly at the distance.");
         }
@@ -124,7 +124,7 @@ public class Superhero implements Contract {
      * @return height after growing
      */
     public Number grow() {
-        height = height + 1 / 0;
+        height = height + 1.0;
         return height;
     }
 
@@ -141,5 +141,16 @@ public class Superhero implements Contract {
     public void undo() {
         rest();
         height = defaultHeight;
+    }
+
+    /*main function for testing */
+    public static void main(String[] args) {
+        Superhero wasp = new Superhero("Wasp", 63,63);
+        wasp.grow();
+        System.out.println(wasp.getHeight());
+        wasp.shrink();
+        wasp.fly(10,2);
+        wasp.rest();
+        wasp.undo();
     }
 }
