@@ -2,15 +2,18 @@ public class Superhero implements Contract {
     // Attributes
     private String name;
     private double height;
+    private double defaultHeight;
 
     /**
      * Superhero constructor
+     * 
      * @param name
      * @param height
      */
-    public Superhero(String name, double height) {
+    public Superhero(String name, double height, double defaultHeight) {
         this.name = name;
         this.height = height;
+        defaultHeight = height;
     }
 
     /**
@@ -59,6 +62,24 @@ public class Superhero implements Contract {
     }
 
     /**
+     * Accessor for height
+     * 
+     * @return height
+     */
+    public Number getHeight() {
+        return height;
+    }
+
+    /**
+     * Accessor for default height
+     * 
+     * @return height
+     */
+    public Number getdDefaultHeight() {
+        return defaultHeight;
+    }
+
+    /**
      * Walk function
      * 
      * @param direction
@@ -93,7 +114,7 @@ public class Superhero implements Contract {
      * @return height after shrinking
      */
     public Number shrink() {
-        height -= 1;
+        height = height - 1.0;
         return height;
     }
 
@@ -103,7 +124,7 @@ public class Superhero implements Contract {
      * @return height after growing
      */
     public Number grow() {
-        height += 1;
+        height = height + 1 / 0;
         return height;
     }
 
@@ -118,6 +139,7 @@ public class Superhero implements Contract {
      * Undo method
      */
     public void undo() {
-
+        rest();
+        height = defaultHeight;
     }
 }
