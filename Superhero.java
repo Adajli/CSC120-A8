@@ -22,7 +22,7 @@ public class Superhero implements Contract {
      * @param item
      */
     public void grab(String item) {
-        System.out.println(name + "grabbedd " + item);
+        System.out.println(name + " grabbedd " + item);
     }
 
     /**
@@ -141,6 +141,7 @@ public class Superhero implements Contract {
     public void undo() {
         rest();
         height = defaultHeight;
+        System.out.println("Everything is undone.");
     }
 
     /*main function for testing */
@@ -149,6 +150,7 @@ public class Superhero implements Contract {
         wasp.grow();
         System.out.println(wasp.getHeight());
         wasp.shrink();
+        wasp.grab("bomb");
         wasp.fly(10,2);
         wasp.rest();
         wasp.undo();
