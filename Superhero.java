@@ -85,7 +85,13 @@ public class Superhero implements Contract {
     public Number getdDefaultHeight() {
         return defaultHeight;
     }
-
+    /**
+     * Accessor for weapon
+     * @return weapon
+     */
+    public String getWeapon(){
+        return weapon;
+    }
     /**
      * Walk function
      * 
@@ -96,6 +102,7 @@ public class Superhero implements Contract {
         boolean walk = false;
         if (direction != null) {
             walk = true;
+            System.out.println("Wasp is walking " + direction);
         } else {
             throw new RuntimeException("Can't walk in the direction.");
         }
@@ -160,11 +167,14 @@ public class Superhero implements Contract {
     public static void main(String[] args) {
         Superhero wasp = new Superhero("Wasp", 63,63, "Glock 17");
         wasp.grow();
+        wasp.grow();
         System.out.println(wasp.getHeight());
         wasp.shrink();
-        wasp.grab("bomb");
+        wasp.walk("Straight ahead");
+        wasp.grab(wasp.getWeapon());
+        wasp.use(wasp.getWeapon());
+        wasp.drop(wasp.getWeapon() );
         wasp.fly(10,2);
-        wasp.rest();
         wasp.undo();
     }
 }
