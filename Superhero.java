@@ -4,13 +4,14 @@ public class Superhero implements Contract {
     private double height;
     private double defaultHeight;
     private String weapon;
+
     /**
      * Superhero constructor
      * 
      * @param name
      * @param height
      */
-    public Superhero(String name, double height, double defaultHeight,String weapon) {
+    public Superhero(String name, double height, double defaultHeight, String weapon) {
         this.name = name;
         this.height = height;
         this.defaultHeight = defaultHeight;
@@ -26,7 +27,7 @@ public class Superhero implements Contract {
         if (item == null) {
             throw new RuntimeException("Can't grab that item.");
         }
-        System.out.println(name + " grabbedd " + weapon);
+        System.out.println(name + " grabbed " + item);
     }
 
     /**
@@ -85,13 +86,16 @@ public class Superhero implements Contract {
     public Number getdDefaultHeight() {
         return defaultHeight;
     }
+
     /**
      * Accessor for weapon
+     * 
      * @return weapon
      */
-    public String getWeapon(){
+    public String getWeapon() {
         return weapon;
     }
+
     /**
      * Walk function
      * 
@@ -163,9 +167,9 @@ public class Superhero implements Contract {
         System.out.println("Everything is undone.");
     }
 
-    /*main function for testing */
+    /* main function for testing */
     public static void main(String[] args) {
-        Superhero wasp = new Superhero("Wasp", 63,63, "Glock 17");
+        Superhero wasp = new Superhero("Wasp", 63, 63, "Glock 17");
         wasp.grow();
         wasp.grow();
         System.out.println(wasp.getHeight());
@@ -173,8 +177,8 @@ public class Superhero implements Contract {
         wasp.walk("Straight ahead");
         wasp.grab(wasp.getWeapon());
         wasp.use(wasp.getWeapon());
-        wasp.drop(wasp.getWeapon() );
-        wasp.fly(10,2);
+        wasp.drop(wasp.getWeapon());
+        wasp.fly(10, 2);
         wasp.undo();
     }
 }
