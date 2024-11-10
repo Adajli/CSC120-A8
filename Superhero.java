@@ -3,17 +3,18 @@ public class Superhero implements Contract {
     private String name;
     private double height;
     private double defaultHeight;
-
+    private String weapon;
     /**
      * Superhero constructor
      * 
      * @param name
      * @param height
      */
-    public Superhero(String name, double height, double defaultHeight) {
+    public Superhero(String name, double height, double defaultHeight,String weapon) {
         this.name = name;
         this.height = height;
-        defaultHeight = height;
+        this.defaultHeight = defaultHeight;
+        this.weapon = weapon;
     }
 
     /**
@@ -22,7 +23,10 @@ public class Superhero implements Contract {
      * @param item
      */
     public void grab(String item) {
-        System.out.println(name + " grabbedd " + item);
+        if (item == null) {
+            throw new RuntimeException("Can't grab that item.");
+        }
+        System.out.println(name + " grabbedd " + weapon);
     }
 
     /**
@@ -32,6 +36,9 @@ public class Superhero implements Contract {
      * @return item dropped
      */
     public String drop(String item) {
+        if (item == null) {
+            throw new RuntimeException("Can't drop that item.");
+        }
         return item;
     }
 
@@ -87,6 +94,11 @@ public class Superhero implements Contract {
      */
     public boolean walk(String direction) {
         boolean walk = false;
+        if (direction != null) {
+            walk = true;
+        } else {
+            throw new RuntimeException("Can't walk in the direction.");
+        }
         return walk;
     }
 
@@ -146,7 +158,7 @@ public class Superhero implements Contract {
 
     /*main function for testing */
     public static void main(String[] args) {
-        Superhero wasp = new Superhero("Wasp", 63,63);
+        Superhero wasp = new Superhero("Wasp", 63,63, "Glock 17");
         wasp.grow();
         System.out.println(wasp.getHeight());
         wasp.shrink();
