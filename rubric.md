@@ -10,7 +10,7 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ## Assignment Points:
 
-_____ 10 pts: The class meaningfully implements each of the methods in described in the `Contract` interface:
+__**YES**___ 10 pts: The class meaningfully implements each of the methods in described in the `Contract` interface:
 
       __**YES**___ `void grab(String item);`
       __**YES**___ `String drop(String item);`
@@ -21,7 +21,7 @@ _____ 10 pts: The class meaningfully implements each of the methods in described
       __**YES**___ `Number shrink();`
       __**YES**___ `Number grow();`
       __**YES**___ `void rest();`
-      _____ `void undo();`
+      ___**YES**__ `void undo();`
 
 
 ## General Items:
@@ -42,6 +42,6 @@ __**YES**___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       __**YES**___ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+__**YES**___ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment, **including a detailed description of the class you implemented and what it does**
+__**YES**___ 1 pt: `reflection.md` contains your reflection on the assignment, **including a detailed description of the class you implemented and what it does**
