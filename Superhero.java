@@ -1,9 +1,9 @@
 public class Superhero implements Contract {
     // Attributes
-    private String name;
+    private final String name;
     private double height;
-    private double defaultHeight;
-    private String weapon;
+    private final double defaultHeight;
+    private final String weapon;
 
     /**
      * Superhero constructor
@@ -24,6 +24,7 @@ public class Superhero implements Contract {
      * 
      * @param item
      */
+    @Override
     public void grab(String item) {
         if (item == null) {
             throw new RuntimeException("Can't grab that item.");
@@ -37,6 +38,7 @@ public class Superhero implements Contract {
      * @param item
      * @return item dropped
      */
+    @Override
     public String drop(String item) {
         if (item == null) {
             throw new RuntimeException("Can't drop that item.");
@@ -49,6 +51,7 @@ public class Superhero implements Contract {
      * 
      * @param item
      */
+    @Override
     public void examine(String item) {
         if (item == null) {
             throw new RuntimeException("Can't examine that item.");
@@ -62,6 +65,7 @@ public class Superhero implements Contract {
      * 
      * @param item
      */
+    @Override
     public void use(String item) {
         if (item == null) {
             throw new RuntimeException("Can't use that item.");
@@ -84,6 +88,7 @@ public class Superhero implements Contract {
      * 
      * @return height
      */
+
     public Number getdDefaultHeight() {
         return defaultHeight;
     }
@@ -103,6 +108,8 @@ public class Superhero implements Contract {
      * @param direction
      * @return walk boolean
      */
+    @Override
+
     public boolean walk(String direction) {
         boolean walk = false;
         if (direction != null) {
@@ -121,6 +128,7 @@ public class Superhero implements Contract {
      * @param y
      * @return fly boolean
      */
+    @Override
     public boolean fly(int x, int y) {
         boolean fly = false;
         if (x >= 0 && y > 0) {
@@ -137,6 +145,7 @@ public class Superhero implements Contract {
      * 
      * @return height after shrinking
      */
+    @Override
     public Number shrink() {
         height = height - 1.0;
         return height;
@@ -147,6 +156,8 @@ public class Superhero implements Contract {
      * 
      * @return height after growing
      */
+        @Override
+
     public Number grow() {
         height = height + 1.0;
         return height;
@@ -155,6 +166,8 @@ public class Superhero implements Contract {
     /**
      * Rest method
      */
+    @Override
+
     public void rest() {
         System.out.println(name + " is resting.");
     }
@@ -162,6 +175,8 @@ public class Superhero implements Contract {
     /**
      * Undo method
      */
+        @Override
+
     public void undo() {
         rest();
         height = defaultHeight;
